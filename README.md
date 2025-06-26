@@ -60,7 +60,7 @@ backend/
 
 ---
 
-**Follow my journey on [LinkedIn](https://www.linkedin.com/)!**
+**Follow my journey on [LinkedIn](https://www.linkedin.com/in/samirkhan0091/)!**
 
 ---
 
