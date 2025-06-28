@@ -1,5 +1,4 @@
 const fs= require("fs").promises;
-const { error } = require("console");
 const path = require("path");
 
 

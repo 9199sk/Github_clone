@@ -6,6 +6,8 @@ const { commit } = require('./controller/commit');
 const { push } = require('./controller/push');
 const { revert } = require('./controller/revert');
 const { pull } = require('./controller/pull');
+const { arch } = require('os');
+const { argv } = require('process');
 
 yargs(hideBin(process.argv))
     .command("init", "initialize a new repository",{}, initRepo)
@@ -26,7 +28,7 @@ yargs(hideBin(process.argv))
             type: "string",
         })
   
-    },  commit)
+    }, (argv)=>{commit(argv.commit)} )
 
     .command("push", "push changes to the remote repository", {},
    // Implement push logic here  
