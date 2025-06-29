@@ -28,11 +28,9 @@ yargs(hideBin(process.argv))
             type: "string",
         })
   
-    }, (argv)=>{commit(argv.commit)} )
+    }, (argv)=>{commit(argv.message)} )
 
-    .command("push", "push changes to the remote repository", {},
-   // Implement push logic here  
-   push)
+    .command("push", "push changes to the remote repository", {},push)
 
     .command("revert <commitId>", "revert changes to a specific commit", (yargs) => {
         yargs.positional("commitId", {
