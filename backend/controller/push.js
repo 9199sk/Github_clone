@@ -11,25 +11,26 @@ async function push() {
         for (const commit of commitDirs) {
             const commitPath = path.join(commitsPath, commit);
             const files = await fs.promises.readdir(commitPath);
-
             for (const file of files) {
                 const filePath = path.join(commitPath, file);
                 const fileBuffer = await fs.promises.readFile(filePath);
 
-                const { error } = await supabase.storage
+                const { data, error } = await supabase
+                    .storage
                     .from("githubclone")
                     .upload(`commits/${commit}/${file}`, fileBuffer, {
-                        contentType: 'text/plain',
-                        upsert: true,
+                        contentType: 'application/octet-stream',
+                        upsert: true
                     });
 
                 if (error) {
                     console.error("❌ Upload failed:", error);
                 } else {
-                    console.log(`✅ File ${file} from commit ${commit} pushed successfully.`);
+                    console.log("✅ Upload success:", file);
                 }
             }
         }
+
     } catch (error) {
         console.error("❌ Error pushing changes:", error);
     }

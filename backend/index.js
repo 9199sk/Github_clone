@@ -6,8 +6,8 @@ const { commit } = require('./controller/commit');
 const { push } = require('./controller/push');
 const { revert } = require('./controller/revert');
 const { pull } = require('./controller/pull');
-const { arch } = require('os');
 const { argv } = require('process');
+
 
 yargs(hideBin(process.argv))
     .command("init", "initialize a new repository",{}, initRepo)
@@ -38,9 +38,9 @@ yargs(hideBin(process.argv))
             type: "string",
         })
 
-    }, revert)
+    },(argv)=> {revert(argv.commitId)})
 
-    .command("pull", "pull changes from the remote repository", {}, pull)
+    .command("pull", "pull changes from the remote repository", {}, ()=>{pull()})
 
     .demandCommand(1, "you need at least one command before moving on").help().argv;
 

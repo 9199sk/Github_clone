@@ -2,7 +2,6 @@ const fs= require("fs").promises;
 const path = require("path");
 
 
-
 async function add(filePath) {
     const repoPath= path.resolve(process.cwd(), ".ownGit");
     const stagingPath= path.join(repoPath, "staging");
