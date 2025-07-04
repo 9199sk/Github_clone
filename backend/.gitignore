@@ -1,1 +1,3 @@
 node_modules
+# add this line to .gitignore
+.env
