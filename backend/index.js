@@ -15,7 +15,10 @@ const bodyParser = require('body-parser')
 const http = require('http')
 const mongoose = require('mongoose');
 const { Server } = require("socket.io");
-const { Socket } = require('dgram');
+const mainRouter = require("../backend/routes/main.router")
+
+app.use(express.urlencoded({ extended: true }));
+
 
 
 yargs(hideBin(process.argv))
@@ -67,14 +70,13 @@ async function startServer() {
         app.use(express.json());
         app.use(cors({ origin: '*' }))
 
+        app.use("/", mainRouter)
+
 
 
         await mongoose.connect(url).then(() => {
             console.error("connection successful mgd")
         }).catch((err) => { console.log(err) })
-
-
-
 
 
         const httpServer = http.createServer(app);
@@ -107,15 +109,10 @@ async function startServer() {
         });
 
 
-        app.get('/', (req, res) => {
-            res.send("hello")
-        });
-
-
     } catch (err) {
         console.error('Failed to start server:', err);
     }
-    
+
 
 
 }

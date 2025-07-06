@@ -27,5 +27,5 @@ async function revert(commitId) {
 }
 
 module.exports = {
-    revert,
+    revert
 };
