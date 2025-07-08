@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const { type } = require('os');
-const { required } = require('yargs');
 const { Schema } = mongoose
 
 

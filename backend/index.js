@@ -7,7 +7,6 @@ const { commit } = require('./controller/commit');
 const { push } = require('./controller/push');
 const { revert } = require('./controller/revert');
 const { pull } = require('./controller/pull');
-const { argv } = require('process');
 const express = require('express');
 const app = express();
 const cors = require('cors');
