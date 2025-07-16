@@ -7,9 +7,9 @@ const { getAllUser,login,signup, getUserProfile,updateUserProfile,deleteUserProf
 userRouter.get("/allUser", getAllUser)
 userRouter.post("/login", login)
 userRouter.post("/signup", signup)
-userRouter.get("/getUserProfile", getUserProfile)
-userRouter.post("/updateUserProfile", updateUserProfile);
-userRouter.delete("/deleteUserProfile", deleteUserProfile)
+userRouter.get("user/:id", getUserProfile)
+userRouter.put("/updateUserProfile/:id", updateUserProfile);
+userRouter.delete("/deleteUserProfile/:id", deleteUserProfile)
 
 
 module.exports = userRouter;

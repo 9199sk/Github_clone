@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 
 const Signup = async (req, res, next) => {
   try {
-    
+
     const { email, password, username, createdAt } = req.body;
     const existingUser = await User.findOne({ email });
     if (existingUser) {

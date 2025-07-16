@@ -10,8 +10,8 @@ const { pull } = require('./controller/pull');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser')
-const http = require('http')
+const bodyParser = require('body-parser');
+const http = require('http');
 const mongoose = require('mongoose');
 const { Server } = require("socket.io");
 const mainRouter = require("../backend/routes/main.router")
@@ -27,7 +27,6 @@ yargs(hideBin(process.argv))
         yargs.positional("file", {
             describe: " file to add",
             type: "string",
-
         }
         )
     }, (argv) => {
@@ -70,8 +69,6 @@ async function startServer() {
         app.use(cors({ origin: '*' }))
 
         app.use("/", mainRouter)
-
-
 
         await mongoose.connect(url).then(() => {
             console.error("connection successful mgd")

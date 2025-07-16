@@ -6,7 +6,7 @@ const { createRepository, getAllRepository, fetchRepositoryById, fetchRepository
 repositoryRouter.post('/create', createRepository);
 repositoryRouter.get('/all', getAllRepository);
 repositoryRouter.get('/:id', fetchRepositoryById);
-repositoryRouter.get('/:name', fetchRepositoryByName);
+repositoryRouter.get('/name/:name', fetchRepositoryByName);
 repositoryRouter.get('/user/:userId', fetchRepositoryForCurrentUser);
 repositoryRouter.put('/:id', updateRepositoryByID);
 repositoryRouter.patch('/:id/toggle', toggleVisibilityById);

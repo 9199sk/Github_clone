@@ -7,7 +7,7 @@ const { UserVerification } = require("../middleware/authmiddleware");
 
 
 
-mainRouter.use('/users', userRouter)
+mainRouter.use('/', userRouter)
 mainRouter.use("/repo", repositoryRouter);
 mainRouter.use("/issues", issueRouter);
 

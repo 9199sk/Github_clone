@@ -5,7 +5,7 @@ const { Schema } = mongoose
 const IssueSchema = new Schema({
     title: {
         type: String,
-                required: true
+        required: true
 
     },
     description: {
@@ -19,8 +19,11 @@ const IssueSchema = new Schema({
     },
 
     repository:{
-        type: Schema.type.objectId,
+        type: Schema.Types.ObjectId,
         ref: "Repository",
         required: true
     }
 })
+
+const Issue= mongoose.model("issue", IssueSchema);
+module.exports= Issue

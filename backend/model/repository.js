@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { boolean } = require('yargs');
 const { Schema } = mongoose;
 
 
@@ -15,23 +16,24 @@ const repositorySchema = new Schema({
     content: [
         {
             type: String,
-            
+
         }
     ],
 
-    visibility:{
-        boolean:true
+    visibility: {
+        type: Boolean,
+        default: true
     },
 
-    owner:{
+    owner: [{
         type: Schema.Types.ObjectId,
-        ref:"user",
-        required:true
-    },
+        ref: "user",
+        required: true
+    }],
 
-    issue:[
+    issue: [
         {
-            type: Schema.Types.objectId,
+            type: Schema.Types.ObjectId,
             ref: "issue"
         }
     ]
@@ -39,5 +41,5 @@ const repositorySchema = new Schema({
 
 })
 
-const Repository= mongoose.model(("Repository", repositorySchema));
-module.exports= Repository
+const Repository = mongoose.model("Repository", repositorySchema);
+module.exports = Repository
