@@ -9,10 +9,10 @@ const repositorySchema = new Schema({
         required: true,
         unique: true
     },
-    description: {
+    description:[ {
         type: String,
 
-    },
+    }],
     content: [
         {
             type: String,
